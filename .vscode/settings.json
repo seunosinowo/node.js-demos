@@ -1,0 +1,7 @@
+{
+    "github.copilot.enable": {
+        "*": false
+    },
+    "editor.inlayHints.enabled": "on",
+    "editor.parameterHints.enabled": false
+}
