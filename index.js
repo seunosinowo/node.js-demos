@@ -7,3 +7,6 @@ const {add, subtract} = math;
 
 console.log(add(2, 4))
 console.log(subtract(2, 4))
+
+const data = require("./data.json")
+console.log(data)
