@@ -1,39 +1,30 @@
-const path = require("node:path")
+const fs = require("node:fs")
 
-console.log(__dirname)
-console.log(__filename)
+console.log("first")
 
-console.log(path.basename(__dirname))
-console.log(path.basename(__filename))
+const fileContent = fs.readFileSync("file.txt", "utf-8")
+console.log(fileContent)
 
-//extname (extension name)
-console.log(path.extname(__dirname))
-console.log(path.extname(__filename))
+console.log("Second")
 
-//Parse (Component Parse)
-console.log(path.parse(__dirname))
-console.log(path.parse(__filename))
+fs.readFile("file.txt", "utf-8", (error, data) => {
+    if(error){
+        console.log(error);
+    } else {
+        console.log(data);
+    }
+})
 
-console.log(path.format(path.parse(__filename)))
+console.log("Third")
 
-console.log(path.isAbsolute(__dirname))
-console.log(path.isAbsolute(__filename))
+//Write file
+fs.writeFileSync("testing.txt", "Hello World");
+fs.writeFileSync("unto.js", "Stillo testing");
 
-console.log(path.isAbsolute("./data.json"))
-
-console.log("")
-
-//Path Join
-console.log(path.join("folder1", "folder2", "index.html"))
-console.log(path.join("/folder1", "folder2", "index.html"))
-console.log(path.join("/folder1", "//folder2", "index.html"))
-console.log(path.join("/folder1", "//folder2", "..index.html"))
-console.log(path.join(__dirname, "data.json"))
-
-console.log("")
-
-console.log(path.resolve("folder1", "folder2", "index.html"))
-console.log(path.resolve("/folder1", "folder2", "index.html"))
-console.log(path.resolve("/folder1", "//folder2", "index.html"))
-console.log(path.resolve("/folder1", "//folder2", "..index.html"))
-console.log(path.resolve(__dirname, "data.json"))
+fs.writeFile("./testing.txt", " Hello Seun", {flag: "a"}, (err) => {
+    if (err){
+        console.log(error)
+    } else {
+        console.log("File Written")
+    }
+})
